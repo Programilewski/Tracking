@@ -4,6 +4,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
+
 const team = {
   rafalKolacz: {
     "2024-01-25": [
@@ -137,37 +138,72 @@ const membersState = {
     "2024-01-25": true,
   },
 };
-const allLines = [];
+class Polyline {
+  constructor(salesman) {
+    this.salesman = salesman;
+    this.polyline = null;
+  }
+  createPolyline(date) {
+    this.polyline = L.polyline(team[this.salesman][date]);
+    this.polyline.addTo(map);
+  }
+  removePolyline(date) {
+    this.polyline.remove();
+    this.date = date;
+  }
+}
+const salesmanCheckboxes = document.querySelectorAll(".isChecked");
+
+salesmanCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("click", () => {
+    membersState[checkbox.id][checkbox.getAttribute("aria-label-date")] =
+      checkbox.checked;
+  });
+});
+
 function drawPolylines() {
-  if (allLines.length !== 0) allLines.forEach((line) => line.remove());
   for (const [key, value] of Object.entries(membersState)) {
     for (const [k, v] of Object.entries(value)) {
-      const line = L.polyline(team[key][k]);
-      allLines.push(line);
+      const line = new Polyline(key);
       if (v) {
-        line.addTo(map);
-      }
-      if (!v) {
-        line.remove();
-        console.log("removed");
+        line.createPolyline(k);
+      } else {
+        line.removePolyline(k);
       }
     }
   }
 }
 drawPolylines();
-const datePicker = document.getElementById("datePicker");
-const checkboxes = document.querySelectorAll(".isChecked");
+salesmanCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("click", () => {
+    drawPolylines();
+  });
+});
+
+// salesmanCheckboxes.forEach((checkbox) => {
+//   let newPoly = null;
+//   checkbox.addEventListener("click", () => {
+//     membersState[checkbox.id][checkbox.getAttribute("aria-label-date")] = true;
+//     const date = document.querySelector("#datePicker").value;
+//     if (newPoly === null) {
+//       newPoly = new Polyline(checkbox.id);
+//     }
+//     if (checkbox.checked) newPoly.createPolyline(date);
+//     if (!checkbox.checked) {
+//       console.log(newPoly);
+//       newPoly.removePolyline(date);
+//       membersState[checkbox.id][
+//         checkbox.getAttribute("aria-label-date")
+//       ] = false;
+//     }
+//   });
+// });
+
+const datePicker = document.querySelector("#datePicker");
 datePicker.addEventListener("change", () => {
-  checkboxes.forEach((checkbox) => {
+  salesmanCheckboxes.forEach((checkbox) => {
     checkbox.setAttribute("aria-label-date", datePicker.value);
     checkbox.checked =
       membersState[checkbox.id][checkbox.getAttribute("aria-label-date")];
-  });
-});
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("click", () => {
-    membersState[checkbox.id][checkbox.getAttribute("aria-label-date")] =
-      checkbox.checked;
-    drawPolylines();
   });
 });

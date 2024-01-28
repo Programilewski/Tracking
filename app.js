@@ -137,26 +137,18 @@ const membersState = {
     "2024-01-25": true,
   },
 };
+const datePicker = document.getElementById("datePicker");
+const checkboxes = document.querySelectorAll(".isChecked");
+const messageContainer = document.querySelector(".messageContainer");
 const allLines = [];
 function drawPolylines() {
-  if (allLines.length !== 0) allLines.forEach((line) => line.remove());
-  for (const [key, value] of Object.entries(membersState)) {
-    for (const [k, v] of Object.entries(value)) {
-      const line = L.polyline(team[key][k]);
-      allLines.push(line);
-      if (v) {
-        line.addTo(map);
-      }
-      if (!v) {
-        line.remove();
-        console.log("removed");
-      }
-    }
+  for (const [key, val] of Object.entries(team)) {
+    console.log(datePicker.value);
+    L.polyline(val[datePicker.value]).addTo(map);
   }
 }
 drawPolylines();
-const datePicker = document.getElementById("datePicker");
-const checkboxes = document.querySelectorAll(".isChecked");
+
 datePicker.addEventListener("change", () => {
   checkboxes.forEach((checkbox) => {
     checkbox.setAttribute("aria-label-date", datePicker.value);

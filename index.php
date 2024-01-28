@@ -35,8 +35,9 @@
       </ul>
       <div class="datePickerContainer">
         <label for="datePicker" class="dateLabel">Wybierz datę</label>
-        <input type="date" id="datePicker" value="<?= date('Y-m-d') ?>" />
+        <input type="date" id="datePicker" value="2024-01-23" />
       </div>
+      <p class="messageContainer"></p>
     </nav>
     <div id="map"></div>
   </div>

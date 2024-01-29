@@ -22,7 +22,6 @@ const team = {
       [52.242757418437044, 20.973022855987804],
       [52.194429442702855, 21.055453776709214],
       [52.12370410619805, 20.818762081783465],
-      ,
     ],
   },
   konradKubicki: {
@@ -52,12 +51,21 @@ const team = {
 };
 const datePicker = document.getElementById("datePicker");
 const checkboxes = document.querySelectorAll(".isChecked");
+const messageContainer = document.querySelector(".messageContainer");
 
 let lines = [];
 function createLines() {
-  checkboxes.forEach((checkbox) =>
-    lines.push(L.polyline(team[checkbox.id][datePicker.value]))
-  );
+  let errorMessage = "";
+  checkboxes.forEach((checkbox) => {
+    try {
+      lines.push(L.polyline(team[checkbox.id][datePicker.value]));
+    } catch (err) {
+      console.log(err);
+      errorMessage += ` Brak danych dla ${checkbox.id}<br> `;
+      messageContainer.innerHTML = errorMessage;
+      checkbox.setAttribute("disabled", "");
+    }
+  });
 }
 createLines();
 checkboxes.forEach((checkbox, index) => {
@@ -73,4 +81,23 @@ datePicker.addEventListener("change", () => {
   checkboxes.forEach((checkbox) => (checkbox.checked = false));
   lines = [];
   createLines();
+});
+
+const btn = document.getElementById("testingAPI");
+
+btn.addEventListener("click", () => {
+  const apiURL = "http://localhost/Tracking/API.php";
+  const dateParam = "2024-01-23";
+  const member = "rafalkolacz";
+  const url = new URL(apiURL);
+  url.searchParams.append("date", dateParam);
+  url.searchParams.append("member", member);
+  const gatherData = fetch(url)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      L.polyline(data).addTo(map);
+      console.log(data);
+    });
 });

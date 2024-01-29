@@ -38,6 +38,7 @@
         <input type="date" id="datePicker" value="2024-01-23" />
       </div>
       <p class="messageContainer"></p>
+      <button id="testingAPI">Generate</button>
     </nav>
     <div id="map"></div>
   </div>

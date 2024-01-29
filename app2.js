@@ -4,33 +4,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
-
 const team = {
   rafalKolacz: {
-    "2024-01-25": [
-      [52.23498121406386, 21.272301474408646],
-      [52.24716945294074, 21.301224984690645],
-      [52.236885847051255, 21.296870907874],
-      [52.24567890123456, 21.2890123456789],
-      [52.237654321098765, 21.274321098765432],
-      [52.24123456789012, 21.26789012345679],
-      [52.24890123456789, 21.303456789012345],
-      [52.23234567890123, 21.286789012345677],
-      [52.2390123456789, 21.27890123456789],
-      [52.22678901234567, 21.297890123456789],
-    ],
-    "2024-01-24": [
-      [52.240504424564904, 21.16842564178299],
-      [52.23040976143125, 21.176200778955568],
-      [52.224694783594316, 21.19983719596021],
-      [52.23654789123456, 21.1890123456789],
-      [52.2201987654321, 21.202345678901234],
-      [52.244567890123456, 21.17234567890123],
-      [52.237654321098765, 21.194321098765432],
-      [52.22890123456789, 21.18789012345679],
-      [52.23234567890123, 21.17890123456789],
-      [52.22678901234567, 21.209890123456789],
-    ],
     "2024-01-23": [
       [52.19329854584873, 21.14346896171669],
       [52.19282993013169, 21.16984281348213],
@@ -45,165 +20,56 @@ const team = {
     ],
   },
   konradKubicki: {
-    "2024-01-25": [
-      [52.19329854584873, 21.14346896171669],
-      [52.19282993013169, 21.16984281348213],
-      [52.17610357185383, 21.18099107887905],
-      [52.183456789012345, 21.155432109876543],
-      [52.19567890123456, 21.162345678901234],
-      [52.184321098765432, 21.174321098765432],
-      [52.19789012345679, 21.1490123456789],
-      [52.186789012345677, 21.15890123456789],
-      [52.193456789012345, 21.16890123456789],
-      [52.17678901234567, 21.17989012345679],
-    ],
-    "2024-01-24": [
-      [52.23498121406386, 21.272301474408646],
-      [52.24716945294074, 21.301224984690645],
-      [52.236885847051255, 21.296870907874],
-      [52.24567890123456, 21.2890123456789],
-      [52.237654321098765, 21.274321098765432],
-      [52.24123456789012, 21.26789012345679],
-      [52.24890123456789, 21.303456789012345],
-      [52.23234567890123, 21.286789012345677],
-      [52.2390123456789, 21.27890123456789],
-      [52.22678901234567, 21.297890123456789],
-    ],
     "2024-01-23": [
-      [52.240504424564904, 21.16842564178299],
-      [52.23040976143125, 21.176200778955568],
-      [52.224694783594316, 21.19983719596021],
-      [52.23654789123456, 21.1890123456789],
-      [52.2201987654321, 21.202345678901234],
-      [52.244567890123456, 21.17234567890123],
-      [52.237654321098765, 21.194321098765432],
-      [52.22890123456789, 21.18789012345679],
-      [52.23234567890123, 21.17890123456789],
-      [52.22678901234567, 21.209890123456789],
+      [52.59717197373283, 21.269501882792536],
+      [52.52224502969791, 20.458924238718595],
+      [52.14380582243707, 21.91705497959486],
     ],
   },
   tomaszSkawski: {
-    "2024-01-25": [
-      [52.23498121406386, 21.272301474408646],
-      [52.24716945294074, 21.301224984690645],
-      [52.236885847051255, 21.296870907874],
-      [52.24567890123456, 21.2890123456789],
-      [52.237654321098765, 21.274321098765432],
-      [52.24123456789012, 21.26789012345679],
-      [52.24890123456789, 21.303456789012345],
-      [52.23234567890123, 21.286789012345677],
-      [52.2390123456789, 21.27890123456789],
-      [52.22678901234567, 21.297890123456789],
-    ],
-    "2024-01-24": [
-      [52.240504424564904, 21.16842564178299],
-      [52.23040976143125, 21.176200778955568],
-      [52.224694783594316, 21.19983719596021],
-      [52.23654789123456, 21.1890123456789],
-      [52.2201987654321, 21.202345678901234],
-      [52.244567890123456, 21.17234567890123],
-      [52.237654321098765, 21.194321098765432],
-      [52.22890123456789, 21.18789012345679],
-      [52.23234567890123, 21.17890123456789],
-      [52.22678901234567, 21.209890123456789],
-    ],
     "2024-01-23": [
-      [52.19329854584873, 21.14346896171669],
-      [52.19282993013169, 21.16984281348213],
-      [52.17610357185383, 21.18099107887905],
-      [52.183456789012345, 21.155432109876543],
-      [52.19567890123456, 21.162345678901234],
-      [52.184321098765432, 21.174321098765432],
-      [52.19789012345679, 21.1490123456789],
-      [52.186789012345677, 21.15890123456789],
-      [52.193456789012345, 21.16890123456789],
-      [52.17678901234567, 21.17989012345679],
+      [52.27362513353931, 20.644007635299833],
+      [52.101698060198714, 20.70712553442428],
+      [52.117931596692465, 20.278081536735968],
+      [52.006758856475464, 20.80835295201984],
     ],
   },
 };
-const membersState = {
-  tomaszSkawski: {
-    "2024-01-23": true,
-    "2024-01-24": true,
-    "2024-01-25": true,
-  },
-  konradKubicki: {
-    "2024-01-23": true,
-    "2024-01-24": true,
-    "2024-01-25": true,
-  },
-  rafalKolacz: {
-    "2024-01-23": true,
-    "2024-01-24": true,
-    "2024-01-25": true,
-  },
-};
-class Polyline {
-  constructor(salesman) {
-    this.salesman = salesman;
-    this.polyline = null;
-  }
-  createPolyline(date) {
-    this.polyline = L.polyline(team[this.salesman][date]);
-    this.polyline.addTo(map);
-  }
-  removePolyline(date) {
-    this.polyline.remove();
-    this.date = date;
-  }
-}
-const salesmanCheckboxes = document.querySelectorAll(".isChecked");
+const datePicker = document.getElementById("datePicker");
+const checkboxes = document.querySelectorAll(".isChecked");
+const messageContainer = document.querySelector(".messageContainer");
+let currentlyDrawnPolylines = [];
 
-salesmanCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("click", () => {
-    membersState[checkbox.id][checkbox.getAttribute("aria-label-date")] =
-      checkbox.checked;
-  });
-});
-
-function drawPolylines() {
-  for (const [key, value] of Object.entries(membersState)) {
-    for (const [k, v] of Object.entries(value)) {
-      const line = new Polyline(key);
-      if (v) {
-        line.createPolyline(k);
-      } else {
-        line.removePolyline(k);
+function manipulatePolylines() {
+  checkboxes.forEach((checkbox) => {
+    let polyline = null;
+    checkbox.addEventListener("click", () => {
+      const polylineCoordinates =
+        team[checkbox.id][checkbox.getAttribute("aria-label-date")];
+      if (polyline === null) {
+        polyline = L.polyline(polylineCoordinates);
+        currentlyDrawnPolylines.push(polyline);
+        console.log(polyline);
       }
-    }
-  }
+      checkbox.checked ? polyline.addTo(map) : polyline.remove();
+    });
+  });
 }
-drawPolylines();
-salesmanCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("click", () => {
-    drawPolylines();
-  });
-});
+manipulatePolylines();
 
-// salesmanCheckboxes.forEach((checkbox) => {
-//   let newPoly = null;
-//   checkbox.addEventListener("click", () => {
-//     membersState[checkbox.id][checkbox.getAttribute("aria-label-date")] = true;
-//     const date = document.querySelector("#datePicker").value;
-//     if (newPoly === null) {
-//       newPoly = new Polyline(checkbox.id);
-//     }
-//     if (checkbox.checked) newPoly.createPolyline(date);
-//     if (!checkbox.checked) {
-//       console.log(newPoly);
-//       newPoly.removePolyline(date);
-//       membersState[checkbox.id][
-//         checkbox.getAttribute("aria-label-date")
-//       ] = false;
-//     }
-//   });
-// });
-
-const datePicker = document.querySelector("#datePicker");
-datePicker.addEventListener("change", () => {
-  salesmanCheckboxes.forEach((checkbox) => {
+function setAriaLabelsForCheckboxes() {
+  checkboxes.forEach((checkbox) => {
     checkbox.setAttribute("aria-label-date", datePicker.value);
-    checkbox.checked =
-      membersState[checkbox.id][checkbox.getAttribute("aria-label-date")];
+    checkbox.checked = false;
+    currentlyDrawnPolylines.forEach((polyline) => {
+      polyline.remove();
+      currentlyDrawnPolylines.forEach((poly) => (poly = null));
+    });
   });
+}
+
+setAriaLabelsForCheckboxes();
+datePicker.addEventListener("change", () => {
+  setAriaLabelsForCheckboxes();
+  manipulatePolylines();
 });

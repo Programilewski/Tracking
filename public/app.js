@@ -40,7 +40,7 @@ function createLines() {
   let errorMessage = "";
   checkboxes.forEach((checkbox) => {
     console.log(datePicker.value);
-    getData(datePicker.value,checkbox.id)
+    getData(datePicker.value,checkbox)
     .then((data)=>{
         lines.push(L.polyline(data));
     })
@@ -60,7 +60,10 @@ checkboxes.forEach((checkbox, index) => {
   });
 });
 
-datePicker.addEventListengetInfo.php?date=2024-01-30&person=rafalKolacz
+datePicker.addEventListener("change", () => {
+  lines.forEach((line) => {
+    line.remove();
+  });
   checkboxes.forEach((checkbox) => (checkbox.checked = false));
   lines = [];
   createLines();

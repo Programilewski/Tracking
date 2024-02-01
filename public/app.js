@@ -18,10 +18,10 @@ function processData(data){
   return coordinates;
 }
 
-function getData(date){
+function getData(date,person){
 
   return new Promise((resolve,reject)=>{
-    fetch(`http://tracking.local/getInfo.php?date=${date}`,{
+    fetch(`http://tracking.local/getInfo.php?date=${date}&person=${person}`,{
     headers: {
       'Content-Type': 'application/json'
     },
@@ -33,7 +33,6 @@ function getData(date){
     resolve(processData(data));
   })
   })
-
 }
 
 let lines = [];
@@ -41,9 +40,8 @@ function createLines() {
   let errorMessage = "";
   checkboxes.forEach((checkbox) => {
     console.log(datePicker.value);
-    getData(datePicker.value)
+    getData(datePicker.value,checkbox.id)
     .then((data)=>{
-        // console.log(data);
         lines.push(L.polyline(data));
     })
     .catch(err=>{
@@ -62,10 +60,7 @@ checkboxes.forEach((checkbox, index) => {
   });
 });
 
-datePicker.addEventListener("change", () => {
-  lines.forEach((line) => {
-    line.remove();
-  });
+datePicker.addEventListengetInfo.php?date=2024-01-30&person=rafalKolacz
   checkboxes.forEach((checkbox) => (checkbox.checked = false));
   lines = [];
   createLines();

@@ -34,21 +34,9 @@ if (isset($_POST["submit"])) {
             $longitude = (float)$row[3];
             $speed = $row[5];
             // Data does not exist, insert into the database
-            // $insertQuery = "INSERT INTO `AdamKubicki` (`ID`, `Date`, `Latitude`, `Longitude`, `Speed`) VALUES (NULL, '$date', '$latitude', '$longitude', '$speed')";
-            // $conn->query($insertQuery);
 
             if ($counter !== 0) {
-                var_dump($name);
-                echo "<br>";
-                var_dump($date);
-                echo "<br>";
-                var_dump($latitude);
-                echo "<br>";
-                var_dump($longitude);
-                echo "<br>";
-                var_dump($speed);
-                echo "<br>";
-                $insertQuery = "INSERT INTO `AdamKubicki` (`ID`, `Date`, `Latitude`, `Longitude`, `Speed`) VALUES (NULL, '$date', '$latitude', '$longitude', '$speed')";
+                $insertQuery = "INSERT INTO `wojciechBilinski` (`ID`, `Date`, `Latitude`, `Longitude`, `Speed`) VALUES (NULL, '$date', '$latitude', '$longitude', '$speed')";
                 $conn->query($insertQuery);
             }
             $counter++;

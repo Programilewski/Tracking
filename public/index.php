@@ -29,8 +29,8 @@
           <input type="checkbox" class="isChecked" id="rafalKolacz" />
         </li>
         <li class="listItem">
-          <label for="tomaszSkawski">Tomasz Skawski</label>
-          <input type="checkbox" class="isChecked" id="tomaszSkawski" />
+          <label for="tomaszSkawski">Wojciech Biliński</label>
+          <input type="checkbox" class="isChecked" id="wojciechBilinski" />
         </li>
       </ul>
       <div class="datePickerContainer">

@@ -14,14 +14,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 // Check if the date parameter is provided in the request
-if (isset($_GET['date'])) {
+if (isset($_GET['date']) && isset($_GET['person'])) {
     $requestedDate = $_GET['date'];
-
+    $requestedPerson = $_GET['person'];
     // Validate and sanitize the date (optional)
     // $requestedDate = date("Y-m-d", strtotime($requestedDate));
 
     // Query to retrieve data based on the provided date
-    $query = "SELECT * FROM AdamKubicki WHERE Date like '$requestedDate'";
+    $query = "SELECT * FROM $requestedPerson WHERE Date like '$requestedDate'";
     $result = $conn->query($query);
 
     if ($result) {

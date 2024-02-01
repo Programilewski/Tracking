@@ -53,18 +53,80 @@ const datePicker = document.getElementById("datePicker");
 const checkboxes = document.querySelectorAll(".isChecked");
 const messageContainer = document.querySelector(".messageContainer");
 
+
+const btn = document.getElementById("testingAPI");
+
+// btn.addEventListener("click", () => {
+//   const apiURL = "http://localhost/Tracking/public/getInfo.php";
+//   const dateParam = "2024-01-23";
+//   const member = "rafalkolacz";
+//   // const url = new URL(apiURL);
+//   // console.log(url);
+//   // url.searchParams.append("date", dateParam);
+//   // url.searchParams.append("member", member);
+//   const gatherData = fetch(apiURL,{
+//     mode:"no-cors"
+//   })
+//     .then((res) => {
+//       return res.json();
+//     })
+//     .then((data) => {
+//       // L.polyline(data).addTo(map);
+//       console.log(data);
+//     });
+// });
+function drawLine(line){
+  line.addTo(map);
+}
+
+function processData(data){
+  const coordinates = [];
+  data.forEach((line)=>{
+    coordinates.push([line.Latitude,line.Longitude])
+  })
+  return coordinates;
+}
+
+function getData(date){
+
+  return new Promise((resolve,reject)=>{
+    fetch(`http://tracking.local/getInfo.php?date=${date}`,{
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+  .then((res)=>res.json())
+  .then(data=>{ 
+    resolve(processData(data));
+  })
+  })
+
+}
+// const test = getData("2023-12-31");
+btn.addEventListener("click",()=>{
+  getData("2023-12-31");
+})
+////////////////////////////
+////////////////////////////
+////////////////////////////
 let lines = [];
 function createLines() {
   let errorMessage = "";
   checkboxes.forEach((checkbox) => {
-    try {
-      lines.push(L.polyline(team[checkbox.id][datePicker.value]));
-    } catch (err) {
-      console.log(err);
-      errorMessage += ` Brak danych dla ${checkbox.id}<br> `;
-      messageContainer.innerHTML = errorMessage;
-      checkbox.setAttribute("disabled", "");
-    }
+    console.log(datePicker.value);
+    getData(datePicker.value)
+    .then((data)=>{
+      try {
+        console.log(data);
+        lines.push(L.polyline(data));
+      } catch (err) {
+        // console.log(err);
+        errorMessage += ` Brak danych dla ${checkbox.id}<br> `;
+        messageContainer.innerHTML = errorMessage;
+        checkbox.setAttribute("disabled", "");
+      }
+    })
+    
   });
 }
 createLines();
@@ -81,23 +143,4 @@ datePicker.addEventListener("change", () => {
   checkboxes.forEach((checkbox) => (checkbox.checked = false));
   lines = [];
   createLines();
-});
-
-const btn = document.getElementById("testingAPI");
-
-btn.addEventListener("click", () => {
-  const apiURL = "http://localhost/Tracking/API.php";
-  const dateParam = "2024-01-23";
-  const member = "rafalkolacz";
-  const url = new URL(apiURL);
-  url.searchParams.append("date", dateParam);
-  url.searchParams.append("member", member);
-  const gatherData = fetch(url)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      L.polyline(data).addTo(map);
-      console.log(data);
-    });
 });

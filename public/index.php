@@ -38,8 +38,14 @@
         <input type="date" id="datePicker" value="2024-01-23" />
       </div>
       <p class="messageContainer"></p>
-      <button id="testingAPI">Generate</button>
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="file">Choose CSV file:</label>
+        <input type="file" name="file" id="file" accept=".csv">
+        <button type="submit" name="submit">Upload</button>
+      </form>
+      <button id="testingAPI">Show</button>
     </nav>
+
     <div id="map"></div>
   </div>
 </body>

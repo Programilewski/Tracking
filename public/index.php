@@ -21,8 +21,8 @@
       <hr>
       <ul class="list">
         <li class="listItem">
-          <label for="konradKubicki">Konrad Kubicki</label>
-          <input type="checkbox" class="isChecked" id="konradKubicki" />
+          <label for="adamKubicki">Adam Kubicki</label>
+          <input type="checkbox" class="isChecked" id="adamKubicki" />
         </li>
         <li class="listItem">
           <label for="rafalKolacz">Rafał Kołacz</label>
